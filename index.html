@@ -1,0 +1,74 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Turkey Province Roulette</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <div class="page">
+      <header class="hero">
+        <p class="eyebrow">Turkey District Roulette</p>
+        <h1>Spin the wheel. Eliminate one district per round.</h1>
+        <p class="subtitle">
+          Each spin removes a district from <code>turkiye_il_ilce.json</code> until only one remains.
+        </p>
+      </header>
+
+      <main class="layout">
+        <section class="wheel-panel">
+          <div class="wheel-shell" aria-live="polite">
+            <canvas id="wheel" width="600" height="600"></canvas>
+            <div class="pointer" aria-hidden="true"></div>
+          </div>
+          <div class="controls">
+            <button id="spinBtn" class="primary">Spin</button>
+            <button id="resetBtn" class="ghost">Reset</button>
+          </div>
+          <p class="hint">Tip: The wheel is faster with fewer districts. Keep spinning until one remains.</p>
+        </section>
+
+        <aside class="info-panel">
+          <div class="stat-grid">
+            <div class="stat">
+              <p class="label">Round</p>
+              <p id="round" class="value">0</p>
+            </div>
+            <div class="stat">
+              <p class="label">Remaining</p>
+              <p id="remaining" class="value">0</p>
+            </div>
+            <div class="stat">
+              <p class="label">Last eliminated</p>
+              <p id="lastEliminated" class="value muted">-</p>
+            </div>
+          </div>
+
+          <div class="winner" id="winnerCard" hidden>
+            <p class="label">Final district</p>
+            <p id="winnerName" class="value"></p>
+          </div>
+
+          <div class="list-card">
+            <p class="label">Eliminated districts</p>
+            <ul id="eliminatedList" class="eliminated"></ul>
+          </div>
+        </aside>
+      </main>
+
+      <div class="modal" id="specialModal" hidden>
+        <div class="modal-card" role="dialog" aria-modal="true" aria-labelledby="specialTitle">
+          <button class="modal-close" id="closeModal" aria-label="Close">Close</button>
+          <div class="modal-media" id="specialMedia" hidden>
+            <img id="specialImage" alt="" />
+          </div>
+          <p class="label" id="specialTitle">Special elimination</p>
+          <p class="modal-message" id="specialMessage"></p>
+        </div>
+      </div>
+    </div>
+
+    <script src="script.js"></script>
+  </body>
+</html>

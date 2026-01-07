@@ -1,1 +1,0 @@
-# kutaybalta.github.io
